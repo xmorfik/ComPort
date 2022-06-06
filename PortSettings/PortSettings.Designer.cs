@@ -202,7 +202,7 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Name = "PortSettings";
-            this.Text = "Form1";
+            this.Text = "Settings";
             this.ResumeLayout(false);
             this.PerformLayout();
 

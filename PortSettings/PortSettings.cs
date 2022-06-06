@@ -5,11 +5,27 @@ namespace PortSettings
     public partial class PortSettings : Form
     {
         static SerialPort _serialPort = new SerialPort();
+        
         public PortSettings()
         {
             InitializeComponent();
             SetComboBoxes();
             SetSerialPort();
+            
+        }
+        public PortSettings(ref SerialPort sp)
+        {
+            InitializeComponent();
+            SetComboBoxes();
+            SetSerialPort();
+            if (sp != null)
+            {
+                _serialPort = sp;
+            }
+            else
+            {
+                MessageBox.Show("null serial port");
+            }
         }
         public void SetComboBoxes()
         {
@@ -90,7 +106,7 @@ namespace PortSettings
                 ProtectComboBoxes();
             }
 
-            label6.Text = Convert.ToString(_serialPort.IsOpen); 
+            IsOpenPort();
         }
         public void SetSerialPort()
         {
@@ -108,7 +124,12 @@ namespace PortSettings
         }
         private void comboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            if (_serialPort.IsOpen)
+            {
+                _serialPort.Close();
+            }
             SetSerialPort();
+            IsOpenPort();
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -122,7 +143,7 @@ namespace PortSettings
                 EnableComboBoxes();
             }
 
-            label6.Text = Convert.ToString(_serialPort.IsOpen);
+            IsOpenPort();
         }
         public void ProtectComboBoxes()
         {
@@ -145,6 +166,11 @@ namespace PortSettings
         private void button3_Click(object sender, EventArgs e)
         {
             RefillPorts();
+
+        }
+        void IsOpenPort()
+        {
+            label6.Text = Convert.ToString(_serialPort.IsOpen);
         }
     }
 }

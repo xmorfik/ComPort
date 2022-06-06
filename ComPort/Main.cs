@@ -15,7 +15,9 @@ namespace ComPort
 
             while (true)
             {
-                ComPort.Write();
+               Console.ReadLine();
+               ComPort.Write();
+                
             }
         }
     }

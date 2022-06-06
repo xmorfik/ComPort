@@ -31,7 +31,13 @@ namespace ComPort
            
             _serialPort.ReadTimeout = 500;
             _serialPort.WriteTimeout = 500;
-            _serialPort.Open();
+            try
+            {
+                _serialPort.Open();
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
             
             SetBufferRead();
             SetBufferWrite();
@@ -169,7 +175,16 @@ namespace ComPort
         public static void SetBufferRead()
         {
             Console.Write("Set buffer size read:");
-            int newBufferSize = int.Parse(Console.ReadLine());
+            int newBufferSize = defaultSize;
+            try
+            {
+                newBufferSize = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error");
+                SetBufferRead();
+            }
             Array.Resize(ref bufferRead, newBufferSize);
             bufferSizeRead = newBufferSize;
         }

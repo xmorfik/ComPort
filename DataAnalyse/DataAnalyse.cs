@@ -42,15 +42,18 @@ namespace DataAnalyse
         {
             if(settings.IsDisposed)
             {
-                this.Close();
+               settings = new PortSettings.PortSettings(ref _sp);
             }
             settings.Show();
+            
         }
 
         public void WriteData()
         {
             Action action = () => richTextBox1.Text = BitConverter.ToString(bufferRead);
             Invoke(action);
+            //Action action = () => richTextBox1.Text = BitConverter.ToString(bufferRead);
+            //Invoke(action);
             //Array.Clear(bufferRead, 0, bufferSizeRead);
         }
 
@@ -84,6 +87,14 @@ namespace DataAnalyse
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             DataCheck();
+            if (button.BackColor == Color.GreenYellow)
+            {
+                button.BackColor = Color.Violet;
+            }
+            else 
+            { 
+            button.BackColor = Color.GreenYellow;
+            }
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)

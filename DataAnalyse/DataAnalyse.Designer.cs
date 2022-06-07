@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ComPort = new System.Windows.Forms.Button();
+            this.button = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
-            // ComPort
+            // button
             // 
-            this.ComPort.Location = new System.Drawing.Point(777, 13);
-            this.ComPort.Name = "ComPort";
-            this.ComPort.Size = new System.Drawing.Size(168, 23);
-            this.ComPort.TabIndex = 1;
-            this.ComPort.Text = "ComPort";
-            this.ComPort.UseVisualStyleBackColor = true;
-            this.ComPort.Click += new System.EventHandler(this.button1_Click);
+            this.button.Location = new System.Drawing.Point(777, 13);
+            this.button.Name = "button";
+            this.button.Size = new System.Drawing.Size(168, 23);
+            this.button.TabIndex = 1;
+            this.button.Text = "ComPort";
+            this.button.UseVisualStyleBackColor = true;
+            this.button.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 
@@ -68,19 +68,23 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(950, 85);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.ComPort);
+            this.Controls.Add(this.button);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DataAnalyse";
             this.Text = "Data";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Button ComPort;
+        private Button button;
         private RichTextBox richTextBox1;
         private NumericUpDown numericUpDown1;
     }

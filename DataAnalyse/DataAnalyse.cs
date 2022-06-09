@@ -1,5 +1,6 @@
 using System.IO.Ports;
 using PortSettings;
+using Emulator;
 
 namespace DataAnalyse
 {
@@ -13,10 +14,10 @@ namespace DataAnalyse
         static byte[] bufferRead = new byte[bufferSizeRead];
         static byte[] bufferPrevRead = new byte[bufferSizeRead];
 
-
         static byte[] bufferWrite = new byte[bufferSizeWrite];
         static SerialPort _sp = new SerialPort();
         static PortSettings.PortSettings settings = new PortSettings.PortSettings(ref _sp);
+        static Emulator.EmulatorForm EmF = new Emulator.EmulatorForm(ref _sp);
 
         public DataAnalyse()
         {
@@ -25,7 +26,7 @@ namespace DataAnalyse
             numericUpDown1.Minimum = 8;
             numericUpDown1.Maximum = 40;
             numericUpDown1.Value = defaultSize;
-           
+            EmF.Show();
         }
 
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
@@ -82,6 +83,7 @@ namespace DataAnalyse
                 }
             }
 
+            
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -95,6 +97,8 @@ namespace DataAnalyse
             { 
             button.BackColor = Color.GreenYellow;
             }
+
+            EmF.GetText(richTextBox1.Text);
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)

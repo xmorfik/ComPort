@@ -2,7 +2,6 @@ using System.IO.Ports;
 
 namespace DataAnalyse
 {
-
     public partial class DataAnalyse : Form
     {
         private const int defaultSize = 24;
@@ -49,15 +48,10 @@ namespace DataAnalyse
         {
             Action action = () => richTextBox1.Text = BitConverter.ToString(bufferRead);
             Invoke(action);
-            //Action action = () => richTextBox1.Text = BitConverter.ToString(bufferRead);
-            //Invoke(action);
-            //Array.Clear(bufferRead, 0, bufferSizeRead);
         }
 
         private void DataCheck()
         {
-
-            //List <int> indexes = new List<int>();
             string sCurent = BitConverter.ToString(bufferRead);
             string sPrev = BitConverter.ToString(bufferPrevRead);
 
@@ -78,8 +72,6 @@ namespace DataAnalyse
                     richTextBox1.SelectionColor = Color.Red;
                 }
             }
-
-
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)

@@ -31,6 +31,7 @@
             this.button = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,12 +65,23 @@
             this.numericUpDown1.TabIndex = 4;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(777, 50);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(168, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Filter";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // DataAnalyse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(950, 85);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button);
@@ -87,5 +99,6 @@
         private Button button;
         private RichTextBox richTextBox1;
         private NumericUpDown numericUpDown1;
+        private Button button1;
     }
 }

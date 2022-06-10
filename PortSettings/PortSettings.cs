@@ -4,14 +4,14 @@ namespace PortSettings
 {
     public partial class PortSettings : Form
     {
-        static SerialPort _serialPort = new SerialPort();
-        
+        private static SerialPort _serialPort = new SerialPort();
+
         public PortSettings()
         {
             InitializeComponent();
             SetComboBoxes();
             SetSerialPort();
-            
+
         }
         public PortSettings(ref SerialPort sp)
         {
@@ -31,9 +31,10 @@ namespace PortSettings
         {
             RefillPorts();
             try
-            { 
-            comboBox1.SelectedIndex = 0;
-            }catch(Exception ex)
+            {
+                comboBox1.SelectedIndex = 0;
+            }
+            catch (Exception)
             {
 
             }
@@ -42,7 +43,7 @@ namespace PortSettings
             comboBox2.Items.Add(300);
             comboBox2.Items.Add(600);
             comboBox2.Items.Add(1200);
-            comboBox2.Items.Add(2400); 
+            comboBox2.Items.Add(2400);
             comboBox2.Items.Add(4800);
             comboBox2.Items.Add(9600);
             comboBox2.Items.Add(14400);
@@ -68,7 +69,7 @@ namespace PortSettings
 
             foreach (string s in Enum.GetNames(typeof(StopBits)))
             {
-                 comboBox5.Items.Add(s);
+                comboBox5.Items.Add(s);
             }
             comboBox5.SelectedIndex = 1;
         }
@@ -81,7 +82,7 @@ namespace PortSettings
                 comboBox1.Items.Add(s);
             }
             comboBox1.SelectedIndex = 0;
-            
+
         }
         public void GetSerialPort(ref SerialPort sp)
         {
@@ -94,14 +95,15 @@ namespace PortSettings
                 try
                 {
                     _serialPort.Open();
-                }catch (Exception ex)
+                }
+                catch (Exception)
                 {
                     MessageBox.Show("Port not found");
                     RefillPorts();
                 }
             }
-            
-            if(_serialPort.IsOpen)
+
+            if (_serialPort.IsOpen)
             {
                 ProtectComboBoxes();
             }
@@ -118,7 +120,7 @@ namespace PortSettings
             {
             }
             _serialPort.BaudRate = (int)(comboBox2.SelectedItem);
-            _serialPort.Parity   = (Parity)(comboBox3.SelectedIndex);
+            _serialPort.Parity = (Parity)(comboBox3.SelectedIndex);
             _serialPort.DataBits = (int)(comboBox4.SelectedItem);
             _serialPort.StopBits = (StopBits)(comboBox5.SelectedIndex);
         }
@@ -138,7 +140,7 @@ namespace PortSettings
                 _serialPort.Close();
             }
 
-            if(!_serialPort.IsOpen)
+            if (!_serialPort.IsOpen)
             {
                 EnableComboBoxes();
             }
@@ -168,7 +170,8 @@ namespace PortSettings
             RefillPorts();
 
         }
-        void IsOpenPort()
+
+        private void IsOpenPort()
         {
             label6.Text = Convert.ToString(_serialPort.IsOpen);
         }

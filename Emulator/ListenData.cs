@@ -1,28 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Emulator
+﻿namespace Emulator
 {
     internal class ListenData
     {
-        int Start;
-        int Lenght;
-        string ListenBytes { get; set; }
-        public ListenData(int start, int lenght, string listenData )
+        private int Start;
+        private int Lenght;
+        private string ListenBytes { get; set; }
+        public ListenData(int start, int lenght, string listenData)
         {
-            this.Start = start; 
+            this.Start = start;
             this.Lenght = lenght;
             this.ListenBytes = listenData;
         }
-
-        public ListenData()
-        {
-            
-        }
-
         public bool Check(string data)
         {
             //string s = data.Replace("-", "");
@@ -31,8 +19,7 @@ namespace Emulator
             byte[] listenBytes = StringToByteArray(ListenBytes);
             return listenBytes.SequenceEqual(cutPak);
         }
-
-        static byte[] StringToByteArray(String hex)
+        private static byte[] StringToByteArray(String hex)
         {
             hex = hex.Replace("-", "");
             int NumberChars = hex.Length;
@@ -41,15 +28,14 @@ namespace Emulator
                 bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
             return bytes;
         }
-        void test()
+        private void test()
         {
             ListenBytes = "33-44-55";
             MessageBox.Show(Check("11-22-33-44-55-66").ToString());
         }
-
         public string GetMe()
         {
-            return ListenBytes + " from " + Start.ToString() + " to " + (Start+Lenght).ToString() ;
+            return ListenBytes + " from " + Start.ToString() + " to " + (Start + Lenght).ToString();
         }
     }
 }

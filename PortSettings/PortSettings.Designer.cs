@@ -206,6 +206,7 @@
             this.MinimizeBox = false;
             this.Name = "PortSettings";
             this.Text = "Settings";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

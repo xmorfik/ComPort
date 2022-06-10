@@ -1,5 +1,3 @@
-using PortSettings;
-
 namespace DataAnalyse
 {
     internal static class ProgramData
@@ -8,11 +6,10 @@ namespace DataAnalyse
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             ApplicationConfiguration.Initialize();
             Application.Run(new DataAnalyse());
-
         }
     }
 }

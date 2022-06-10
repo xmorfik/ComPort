@@ -1,5 +1,3 @@
-using System.IO.Ports;
-
 namespace PortSettings
 {
     public static class ProgramSettings
@@ -14,7 +12,7 @@ namespace PortSettings
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //SerialPort sp = new SerialPort();
-           
+
             //form.GetSerialPort(ref sp);
             Application.Run(new PortSettings());
         }

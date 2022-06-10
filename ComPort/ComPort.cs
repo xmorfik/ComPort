@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO.Ports;
-using System.Threading;
+﻿using System.IO.Ports;
 
 
 namespace ComPort
 {
     public class ComPort
     {
-        const int defaultSize = 24;
-        static int bufferSizeRead = defaultSize;
-        static int bufferSizeWrite = defaultSize;
-        static byte[] bufferRead = new byte[bufferSizeRead];
-        static byte[] bufferWrite = new byte[bufferSizeWrite];
-        static SerialPort _serialPort = new SerialPort();
+        private const int defaultSize = 24;
+        private static int bufferSizeRead = defaultSize;
+        private static int bufferSizeWrite = defaultSize;
+        private static byte[] bufferRead = new byte[bufferSizeRead];
+        private static byte[] bufferWrite = new byte[bufferSizeWrite];
+        private static SerialPort _serialPort = new SerialPort();
         public void Start()
         {
             StringComparer stringComparer = StringComparer.OrdinalIgnoreCase;
-            
+
             _serialPort.PortName = SetPortName(_serialPort.PortName);
             _serialPort.BaudRate = SetPortBaudRate(_serialPort.BaudRate);
             _serialPort.Parity = SetPortParity(_serialPort.Parity);
@@ -28,35 +22,32 @@ namespace ComPort
             _serialPort.StopBits = SetPortStopBits(_serialPort.StopBits);
             _serialPort.Handshake = SetPortHandshake(_serialPort.Handshake);
             _serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-           
+
             _serialPort.ReadTimeout = 500;
             _serialPort.WriteTimeout = 500;
             try
             {
                 _serialPort.Open();
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-            
+
             SetBufferRead();
             SetBufferWrite();
-           
+
 
         }
-
-        
-
         public static void Write()
         {
             _serialPort.Write(bufferWrite, 0, bufferSizeWrite);
         }
-
         public static void Stop()
         {
             _serialPort.Close();
         }
-        private static void DataReceivedHandler(object sender,SerialDataReceivedEventArgs e)
+        private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
             sp.Read(bufferRead, 0, bufferSizeRead);

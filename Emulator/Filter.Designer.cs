@@ -1,6 +1,6 @@
 ﻿namespace Emulator
 {
-    partial class EmulatorForm
+    partial class Filter
     {
         /// <summary>
         ///  Required designer variable.
@@ -35,6 +35,7 @@
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +44,8 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(12, 12);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(792, 426);
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(792, 407);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -112,15 +114,27 @@
             // 
             this.richTextBox2.Location = new System.Drawing.Point(810, 158);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(124, 280);
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.Size = new System.Drawing.Size(124, 261);
             this.richTextBox2.TabIndex = 7;
             this.richTextBox2.Text = "";
             // 
-            // EmulatorForm
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(12, 425);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Очистить";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // Filter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 450);
+            this.ClientSize = new System.Drawing.Size(946, 456);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.numericUpDown2);
@@ -128,8 +142,11 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.richTextBox1);
-            this.Name = "EmulatorForm";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "Filter";
             this.Text = "Filter";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
@@ -146,5 +163,6 @@
         private NumericUpDown numericUpDown2;
         private TextBox textBox1;
         private RichTextBox richTextBox2;
+        private Button button3;
     }
 }

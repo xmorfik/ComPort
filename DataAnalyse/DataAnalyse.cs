@@ -1,23 +1,19 @@
 using System.IO.Ports;
-using PortSettings;
-using Emulator;
 
 namespace DataAnalyse
 {
-    
+
     public partial class DataAnalyse : Form
     {
-        const int defaultSize = 24;
-        static int bufferSizeRead = defaultSize;
-        static int bufferSizeWrite = defaultSize;
-
-        static byte[] bufferRead = new byte[bufferSizeRead];
-        static byte[] bufferPrevRead = new byte[bufferSizeRead];
-
-        static byte[] bufferWrite = new byte[bufferSizeWrite];
-        static SerialPort _sp = new SerialPort();
-        static PortSettings.PortSettings settings = new PortSettings.PortSettings(ref _sp);
-        static Emulator.EmulatorForm EmF = new Emulator.EmulatorForm(ref _sp);
+        private const int defaultSize = 24;
+        private static int bufferSizeRead = defaultSize;
+        private static int bufferSizeWrite = defaultSize;
+        private static byte[] bufferRead = new byte[bufferSizeRead];
+        private static byte[] bufferPrevRead = new byte[bufferSizeRead];
+        private static byte[] bufferWrite = new byte[bufferSizeWrite];
+        private static SerialPort _sp = new SerialPort();
+        private static PortSettings.PortSettings settings = new PortSettings.PortSettings(ref _sp);
+        private static Emulator.Filter filterForm = new Emulator.Filter(ref _sp);
 
         public DataAnalyse()
         {
@@ -26,7 +22,7 @@ namespace DataAnalyse
             numericUpDown1.Minimum = 8;
             numericUpDown1.Maximum = 40;
             numericUpDown1.Value = defaultSize;
-            EmF.Show();
+            
         }
 
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
@@ -41,12 +37,12 @@ namespace DataAnalyse
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(settings.IsDisposed)
+            if (settings.IsDisposed)
             {
-               settings = new PortSettings.PortSettings(ref _sp);
+                settings = new PortSettings.PortSettings(ref _sp);
             }
             settings.Show();
-            
+
         }
 
         public void WriteData()
@@ -58,32 +54,32 @@ namespace DataAnalyse
             //Array.Clear(bufferRead, 0, bufferSizeRead);
         }
 
-        void DataCheck()
+        private void DataCheck()
         {
-           
+
             //List <int> indexes = new List<int>();
             string sCurent = BitConverter.ToString(bufferRead);
             string sPrev = BitConverter.ToString(bufferPrevRead);
 
-            if(sCurent.Length != sPrev.Length)
+            if (sCurent.Length != sPrev.Length)
             {
                 return;
             }
 
-            for(int i=0; i< sPrev.Length; i++) 
-            { 
-                if(sPrev[i] == '-')
+            for (int i = 0; i < sPrev.Length; i++)
+            {
+                if (sPrev[i] == '-')
                 {
                     continue;
                 }
-                if(sCurent[i]!=sPrev[i])
+                if (sCurent[i] != sPrev[i])
                 {
-                     richTextBox1.Select(i, 2);
-                     richTextBox1.SelectionColor = Color.Red;
+                    richTextBox1.Select(i, 2);
+                    richTextBox1.SelectionColor = Color.Red;
                 }
             }
 
-            
+
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -93,12 +89,12 @@ namespace DataAnalyse
             {
                 button.BackColor = Color.Violet;
             }
-            else 
-            { 
-            button.BackColor = Color.GreenYellow;
+            else
+            {
+                button.BackColor = Color.GreenYellow;
             }
 
-            EmF.GetText(richTextBox1.Text);
+            filterForm.GetText(richTextBox1.Text);
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -107,6 +103,15 @@ namespace DataAnalyse
             bufferSizeWrite = Convert.ToInt32(numericUpDown1.Value);
             bufferRead = new byte[Convert.ToInt32(numericUpDown1.Value)];
             bufferPrevRead = new byte[Convert.ToInt32(numericUpDown1.Value)];
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (filterForm.IsDisposed)
+            {
+                filterForm = new Emulator.Filter(ref _sp);
+            }
+            filterForm.Show();
         }
     }
 }

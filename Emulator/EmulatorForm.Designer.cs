@@ -34,7 +34,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +50,11 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(810, 13);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            39,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 23);
             this.numericUpDown1.TabIndex = 1;
@@ -77,9 +82,24 @@
             // numericUpDown2
             // 
             this.numericUpDown2.Location = new System.Drawing.Point(810, 42);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(120, 23);
             this.numericUpDown2.TabIndex = 4;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // textBox1
             // 
@@ -88,20 +108,20 @@
             this.textBox1.Size = new System.Drawing.Size(120, 23);
             this.textBox1.TabIndex = 5;
             // 
-            // textBox2
+            // richTextBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(810, 158);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(124, 280);
-            this.textBox2.TabIndex = 6;
+            this.richTextBox2.Location = new System.Drawing.Point(810, 158);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(124, 280);
+            this.richTextBox2.TabIndex = 7;
+            this.richTextBox2.Text = "";
             // 
             // EmulatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 450);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.button2);
@@ -109,7 +129,7 @@
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.richTextBox1);
             this.Name = "EmulatorForm";
-            this.Text = "Form1";
+            this.Text = "Filter";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
@@ -125,6 +145,6 @@
         private Button button2;
         private NumericUpDown numericUpDown2;
         private TextBox textBox1;
-        private TextBox textBox2;
+        private RichTextBox richTextBox2;
     }
 }

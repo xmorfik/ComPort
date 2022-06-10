@@ -8,15 +8,14 @@ namespace Emulator
 {
     internal class ListenData
     {
-        int start;
-        int lenght;
-        string listenData { get; set; }
-
+        int Start;
+        int Lenght;
+        string ListenBytes { get; set; }
         public ListenData(int start, int lenght, string listenData )
         {
-            this.start = start; 
-            this.lenght = lenght;
-            this.listenData = listenData;
+            this.Start = start; 
+            this.Lenght = lenght;
+            this.ListenBytes = listenData;
         }
 
         public ListenData()
@@ -28,8 +27,8 @@ namespace Emulator
         {
             //string s = data.Replace("-", "");
             byte[] bytes = StringToByteArray(data);
-            byte[] cutPak = bytes[start..(start + lenght)];
-            byte[] listenBytes = StringToByteArray(listenData);
+            byte[] cutPak = bytes[Start..(Start + Lenght)];
+            byte[] listenBytes = StringToByteArray(ListenBytes);
             return listenBytes.SequenceEqual(cutPak);
         }
 
@@ -42,16 +41,15 @@ namespace Emulator
                 bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
             return bytes;
         }
-
         void test()
         {
-            listenData = "33-44-55";
+            ListenBytes = "33-44-55";
             MessageBox.Show(Check("11-22-33-44-55-66").ToString());
         }
 
         public string GetMe()
         {
-            return listenData + " from " + start.ToString() + " to " + (start+lenght).ToString() ;
+            return ListenBytes + " from " + Start.ToString() + " to " + (Start+Lenght).ToString() ;
         }
     }
 }

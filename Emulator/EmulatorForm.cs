@@ -43,7 +43,7 @@ namespace Emulator
         {
             ListenData ld = new ListenData((int)numericUpDown1.Value, (int)numericUpDown2.Value,textBox1.Text);
             _listenDatas.Add(ld);
-            textBox2.Text += ld.GetMe() + "\n";
+            richTextBox2.Text += ld.GetMe() + "\n";
         }
 
         bool CheckPak(string pak)
@@ -72,7 +72,7 @@ namespace Emulator
             _listenDatas.Clear();
             numericUpDown1.Value = 0;
             textBox1.Text = "";
-            textBox2.Text = "";
+            richTextBox2.Text = "";
             numericUpDown2.Value = 0;
         }
     }

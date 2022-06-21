@@ -2,10 +2,7 @@ namespace HashSum
 {
     public partial class HashSum : Form
     {
-        delegate byte[] HashSumDelegate(byte[] data);
-        
         private string logic;
-
         public HashSum()
         {
             InitializeComponent();    
@@ -30,7 +27,6 @@ namespace HashSum
             foreach (byte b in bytes)
             {
                 sum[0] += b;
-                
             }
             textBox3.Text = BitConverter.ToString(sum);
         }

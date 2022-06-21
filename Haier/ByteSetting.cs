@@ -23,7 +23,7 @@ namespace Haier
         {
             if (IsNumber)
             {
-                return data.ToString();
+                return data.ToString("X");
             }
 
             if (MeaningList.Count == 0)

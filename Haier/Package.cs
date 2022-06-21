@@ -33,7 +33,7 @@ namespace Haier
             {
                 return;
             }
-            DataBytes = bytesArray;
+            Array.Copy(bytesArray, DataBytes,Size);
         }
         public void Serialize()
         {
@@ -45,6 +45,10 @@ namespace Haier
             JsonSerializer.Serialize(stream,ByteSettings,options);
             var str = JsonSerializer.Serialize(ByteSettings);
             stream.Close();
+        }
+        public void Deserialize()
+        {
+
         }
         public static byte[] ConvertStringToByteArray(String hex)
         {

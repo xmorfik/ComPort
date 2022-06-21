@@ -13,7 +13,7 @@ namespace Haier
             //ApplicationConfiguration.Initialize();
             //Application.Run(new HaierForm());
             Package package = new Package(18);
-            package.RefreshBytesArray(Package.ConvertStringToByteArray("E7"));
+            package.RefreshBytesArray(Package.ConvertStringToByteArray("E7 14 AA 55 0E 00 80 09 00 57 57 56 57 56 02 00 00 4A"));
             package.ByteSettings[1].MeaningList.Add(new ValueMeaning(20, "HEAT OFF"));
             package.ByteSettings[1].MeaningList.Add(new ValueMeaning(13, "HEAT ON"));
             package.ByteSettings[1].MeaningList.Add(new ValueMeaning(14, "NONE"));

@@ -41,5 +41,7 @@ namespace Haier
             
             return string.Empty;
         }
+
+        
     }
 }

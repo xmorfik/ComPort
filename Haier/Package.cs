@@ -17,14 +17,29 @@ namespace Haier
         {
             DataBytes = new byte[lenght];
             ByteSettings = new List<ByteSetting>();
-            Size = lenght;
             SetPackageLenght(lenght);
+            Size = lenght;
         }
-        void SetPackageLenght(int lenght)
+        public void SetPackageLenght(int lenght)
         {
-            for(int i = 0; i< lenght; i++)
+            if (ByteSettings.Count < lenght)
             {
-                ByteSettings.Add(new ByteSetting(i,true));
+                for(int i = ByteSettings.Count; i < lenght;i++)
+                {
+                    ByteSettings.Add(new ByteSetting(i,true));
+                }
+                Size = lenght;
+                return;
+            }
+            else if (ByteSettings.Count > lenght)
+            {
+                ByteSettings.RemoveRange(lenght, ByteSettings.Count-lenght);
+                Size = lenght;
+                return;
+            }
+            else
+            {
+                return;
             }
         }
         public void RefreshBytesArray(byte[] bytesArray)
@@ -35,20 +50,71 @@ namespace Haier
             }
             Array.Copy(bytesArray, DataBytes,Size);
         }
-        public void Serialize()
+        public void Serialize(string nameOfFile)
         {
+            Stream stream;
             var options = new JsonSerializerOptions
             {
                 WriteIndented = true
             };
-            var stream = new FileStream("Package.json", FileMode.Create, FileAccess.Write, FileShare.None);
-            JsonSerializer.Serialize(stream,ByteSettings,options);
-            var str = JsonSerializer.Serialize(ByteSettings);
+            try
+            {
+                stream = new FileStream(nameOfFile, FileMode.Create, FileAccess.Write, FileShare.None);
+                JsonSerializer.Serialize(stream, ByteSettings, options);
+            }
+            catch
+            {
+                MessageBox.Show("Fali serialize");
+                return ;
+            }
             stream.Close();
         }
-        public void Deserialize()
+        public void Deserialize(string nameOfFile)
         {
+            Stream stream;
+            ByteSetting[]? obj;
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
 
+            try
+            {
+                stream = new FileStream(nameOfFile, FileMode.Open, FileAccess.Read, FileShare.None);
+            }
+            catch
+            {
+                MessageBox.Show("Fail, wrong name of file");
+                return;
+            }
+
+            try
+            {
+                obj = JsonSerializer.Deserialize<ByteSetting[]>(stream, options);
+            }
+            catch
+            {
+                MessageBox.Show("Fail, undeserializeble content");
+                stream.Close();
+                return;
+            }
+
+            if (obj == null)
+            {
+                MessageBox.Show("obj == null");
+                stream.Close();
+                return;
+            }
+
+            ByteSettings.Clear();
+
+            foreach (ByteSetting b in obj)
+            {
+                ByteSettings.Add(b);
+            }
+            Size = obj.Length;
+
+            stream.Close();
         }
         public static byte[] ConvertStringToByteArray(String hex)
         {
@@ -61,6 +127,21 @@ namespace Haier
                 bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
             }
             return bytes;
+        }
+        public string GetCurrentSettings()
+        {
+            string settings = "";
+
+            for(int i = 0; i< ByteSettings.Count; i++)
+            {
+                settings += $"{i}. {ByteSettings[i].IsNumber}  \r\n";
+                for(int j = 0; j<ByteSettings[i].MeaningList.Count; j++)
+                {
+                    settings += $"      {ByteSettings[i].MeaningList[j].Value.ToString("X")} --- {ByteSettings[i].MeaningList[j].Meaning} \r\n";
+                }
+            }
+
+            return settings;
         }
     }
 }

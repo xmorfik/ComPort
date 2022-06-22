@@ -9,11 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAnalyse", "DataAnalyse\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PackageManager", "PackageManager\PackageManager.csproj", "{9CFE25F0-F3DD-4461-A132-1CD2B697F7AA}"
 EndProject
-<<<<<<< HEAD
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilterPackage", "PackageFilter\FilterPackage.csproj", "{01912DA7-9C50-4E48-B30F-13CC4C2B5A58}"
-=======
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PackageManeger", "Haier\PackageManeger.csproj", "{4CFFDCCC-E386-40DB-8B7B-CB034836A026}"
->>>>>>> d1e11d6a6bf66b07007ed99808d0af7d77927cd0
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

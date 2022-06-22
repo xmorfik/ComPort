@@ -1,4 +1,4 @@
-﻿namespace Haier
+﻿namespace Manager
 {
     partial class PackageManager
     {
@@ -42,47 +42,59 @@
             this.label3 = new System.Windows.Forms.Label();
             this.applyToSettings = new System.Windows.Forms.Button();
             this.sizeOfPackage = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.refreshTextBox = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.indexOfByte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeOfPackage)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // indexOfByte
             // 
-            this.indexOfByte.Location = new System.Drawing.Point(79, 10);
+            this.indexOfByte.Location = new System.Drawing.Point(109, 22);
             this.indexOfByte.Name = "indexOfByte";
             this.indexOfByte.Size = new System.Drawing.Size(120, 23);
             this.indexOfByte.TabIndex = 1;
             // 
             // meaningStr
             // 
-            this.meaningStr.Location = new System.Drawing.Point(79, 68);
+            this.meaningStr.Location = new System.Drawing.Point(109, 80);
             this.meaningStr.Name = "meaningStr";
             this.meaningStr.Size = new System.Drawing.Size(120, 23);
             this.meaningStr.TabIndex = 2;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(229, 120);
+            this.textBox2.Location = new System.Drawing.Point(6, 22);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 317);
+            this.textBox2.Size = new System.Drawing.Size(165, 536);
             this.textBox2.TabIndex = 3;
             // 
             // hexNumber
             // 
-            this.hexNumber.Location = new System.Drawing.Point(79, 39);
+            this.hexNumber.Location = new System.Drawing.Point(109, 51);
             this.hexNumber.Name = "hexNumber";
             this.hexNumber.Size = new System.Drawing.Size(120, 23);
             this.hexNumber.TabIndex = 4;
             // 
             // nameOfFile
             // 
-            this.nameOfFile.Location = new System.Drawing.Point(79, 344);
+            this.nameOfFile.Location = new System.Drawing.Point(6, 22);
             this.nameOfFile.Name = "nameOfFile";
             this.nameOfFile.Size = new System.Drawing.Size(120, 23);
             this.nameOfFile.TabIndex = 5;
@@ -90,7 +102,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(79, 373);
+            this.button1.Location = new System.Drawing.Point(6, 51);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 23);
             this.button1.TabIndex = 6;
@@ -101,16 +113,16 @@
             // isNumberCheck
             // 
             this.isNumberCheck.AutoSize = true;
-            this.isNumberCheck.Location = new System.Drawing.Point(229, 10);
+            this.isNumberCheck.Location = new System.Drawing.Point(109, 109);
             this.isNumberCheck.Name = "isNumberCheck";
-            this.isNumberCheck.Size = new System.Drawing.Size(78, 19);
+            this.isNumberCheck.Size = new System.Drawing.Size(102, 19);
             this.isNumberCheck.TabIndex = 7;
-            this.isNumberCheck.Text = "IsNumber";
+            this.isNumberCheck.Text = "Только число";
             this.isNumberCheck.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(79, 402);
+            this.button2.Location = new System.Drawing.Point(6, 80);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 23);
             this.button2.TabIndex = 8;
@@ -121,7 +133,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 47);
+            this.label1.Location = new System.Drawing.Point(61, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 15);
             this.label1.TabIndex = 9;
@@ -130,7 +142,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 76);
+            this.label2.Location = new System.Drawing.Point(43, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 15);
             this.label2.TabIndex = 10;
@@ -139,7 +151,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 18);
+            this.label3.Location = new System.Drawing.Point(71, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 15);
             this.label3.TabIndex = 11;
@@ -147,7 +159,7 @@
             // 
             // applyToSettings
             // 
-            this.applyToSettings.Location = new System.Drawing.Point(229, 68);
+            this.applyToSettings.Location = new System.Drawing.Point(109, 134);
             this.applyToSettings.Name = "applyToSettings";
             this.applyToSettings.Size = new System.Drawing.Size(120, 23);
             this.applyToSettings.TabIndex = 12;
@@ -157,7 +169,7 @@
             // 
             // sizeOfPackage
             // 
-            this.sizeOfPackage.Location = new System.Drawing.Point(79, 120);
+            this.sizeOfPackage.Location = new System.Drawing.Point(6, 22);
             this.sizeOfPackage.Maximum = new decimal(new int[] {
             40,
             0,
@@ -169,7 +181,7 @@
             0,
             0});
             this.sizeOfPackage.Name = "sizeOfPackage";
-            this.sizeOfPackage.Size = new System.Drawing.Size(120, 23);
+            this.sizeOfPackage.Size = new System.Drawing.Size(80, 23);
             this.sizeOfPackage.TabIndex = 13;
             this.sizeOfPackage.Value = new decimal(new int[] {
             8,
@@ -177,82 +189,152 @@
             0,
             0});
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 128);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 15);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Размер";
-            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(79, 149);
+            this.button4.Location = new System.Drawing.Point(6, 51);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(120, 23);
+            this.button4.Size = new System.Drawing.Size(80, 52);
             this.button4.TabIndex = 15;
             this.button4.Text = "Изменить";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.SetLenght_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(46, 326);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(153, 15);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Сохранить конфигурацию";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(229, 100);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 15);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Текущие настройки";
-            // 
             // refreshTextBox
             // 
-            this.refreshTextBox.Location = new System.Drawing.Point(355, 414);
+            this.refreshTextBox.Location = new System.Drawing.Point(177, 267);
             this.refreshTextBox.Name = "refreshTextBox";
-            this.refreshTextBox.Size = new System.Drawing.Size(75, 23);
+            this.refreshTextBox.Size = new System.Drawing.Size(86, 23);
             this.refreshTextBox.TabIndex = 18;
             this.refreshTextBox.Text = "Обновить";
             this.refreshTextBox.UseVisualStyleBackColor = true;
             this.refreshTextBox.Click += new System.EventHandler(this.refreshTextBox_Click);
             // 
-            // HaierForm
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.applyToSettings);
+            this.groupBox1.Controls.Add(this.indexOfByte);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.hexNumber);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.meaningStr);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.isNumberCheck);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(249, 181);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Настройка";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.nameOfFile);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Location = new System.Drawing.Point(12, 199);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(137, 114);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Сохранить";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.sizeOfPackage);
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Location = new System.Drawing.Point(155, 199);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(106, 114);
+            this.groupBox3.TabIndex = 21;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Размер пакета";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.textBox2);
+            this.groupBox4.Controls.Add(this.refreshTextBox);
+            this.groupBox4.Location = new System.Drawing.Point(267, 12);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(270, 564);
+            this.groupBox4.TabIndex = 22;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Текущие настройки";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.button5);
+            this.groupBox5.Controls.Add(this.button3);
+            this.groupBox5.Location = new System.Drawing.Point(12, 319);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(249, 257);
+            this.groupBox5.TabIndex = 23;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Комуникация";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 22);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(237, 31);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "Открыть порт";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.ShowFormPort);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.textBox1);
+            this.groupBox6.Location = new System.Drawing.Point(543, 12);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(271, 564);
+            this.groupBox6.TabIndex = 24;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Расшифровка";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 21);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(165, 536);
+            this.textBox1.TabIndex = 4;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(6, 59);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(237, 31);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Фильтр";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.ShowFilterForm);
+            // 
+            // PackageManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 450);
-            this.Controls.Add(this.refreshTextBox);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.sizeOfPackage);
-            this.Controls.Add(this.applyToSettings);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.isNumberCheck);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.nameOfFile);
-            this.Controls.Add(this.hexNumber);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.meaningStr);
-            this.Controls.Add(this.indexOfByte);
-            this.Name = "HaierForm";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(826, 588);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "PackageManager";
+            this.Text = "Manager";
             ((System.ComponentModel.ISupportInitialize)(this.indexOfByte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeOfPackage)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -272,10 +354,16 @@
         private Label label3;
         private Button applyToSettings;
         private NumericUpDown sizeOfPackage;
-        private Label label4;
         private Button button4;
-        private Label label5;
-        private Label label6;
         private Button refreshTextBox;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private GroupBox groupBox3;
+        private GroupBox groupBox4;
+        private GroupBox groupBox5;
+        private Button button3;
+        private GroupBox groupBox6;
+        private TextBox textBox1;
+        private Button button5;
     }
 }

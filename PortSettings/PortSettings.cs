@@ -5,7 +5,6 @@ namespace PortSettings
     public partial class PortSettings : Form
     {
         private static SerialPort _serialPort = new SerialPort();
-
         public PortSettings()
         {
             InitializeComponent();
@@ -170,7 +169,6 @@ namespace PortSettings
             RefillPorts();
 
         }
-
         private void IsOpenPort()
         {
             label6.Text = Convert.ToString(_serialPort.IsOpen);

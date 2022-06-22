@@ -8,4 +8,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PackageFilter\FilterPackage.csproj" />
+    <ProjectReference Include="..\PortSettings\PortSettings.csproj" />
+  </ItemGroup>
+
 </Project>

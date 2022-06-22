@@ -17,9 +17,6 @@ namespace Emulator
             InitializeComponent();
             _sp = sp;
         }
-
-
-
         public void GetData(byte[] array, int leght)
         {
             richTextBox1.Text += BitConverter.ToString(array) + "\n";

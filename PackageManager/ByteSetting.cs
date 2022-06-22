@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Haier
+namespace Manager
 {
     [Serializable]
-    
     internal class ByteSetting
     {
         public bool IsNumber { get; set; }
@@ -40,8 +39,6 @@ namespace Haier
             }
             
             return string.Empty;
-        }
-
-        
+        }  
     }
 }

@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 
-namespace Haier
+namespace Manager
 {
     [Serializable]
     internal class Package
@@ -142,6 +142,10 @@ namespace Haier
             }
 
             return settings;
+        }
+        public int GetSize()
+        {
+            return Size;
         }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Manager
+﻿namespace Manager
 {
     [Serializable]
     internal class ByteSetting
@@ -30,15 +24,15 @@ namespace Manager
                 return string.Empty;
             }
 
-            for(int i = 0; i< MeaningList.Count; i++)
+            for (int i = 0; i < MeaningList.Count; i++)
             {
-                if(MeaningList[i].Value == data )
+                if (MeaningList[i].Value == data)
                 {
                     return MeaningList[i].Meaning;
                 }
             }
-            
+
             return string.Empty;
-        }  
+        }
     }
 }

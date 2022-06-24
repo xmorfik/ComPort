@@ -21,25 +21,29 @@ namespace Manager
         }
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
+            byte[] data = new byte[resivedPackage.GetSize()];
             SerialPort sp = (SerialPort)sender;
-            sp.Read(resivedPackage.DataBytes, 0, resivedPackage.GetSize());
+            sp.Read(data, 0, resivedPackage.GetSize());
             sp.DiscardInBuffer();
+            resivedPackage.SetDataBytes(data);
+            SendToFilter(data);
+            DecodeData();
         }
         private void SetLenght_Click(object sender, EventArgs e)
         {
             resivedPackage.SetPackageLenght((int)sizeOfPackage.Value);
-            RefreshTextBox();
+            RefreshSettingsTextBox();
         }
         private void Deserialize_Click(object sender, EventArgs e)
         {
             resivedPackage.Deserialize(nameOfFile.Text);
-            RefreshTextBox();
+            RefreshSettingsTextBox();
         }
         private void Serialize_Click(object sender, EventArgs e)
         {
             resivedPackage.Serialize(nameOfFile.Text);
         }
-        private void applyToSettings_Click(object sender, EventArgs e)
+        private void ApplyToSettings_Click(object sender, EventArgs e)
         {
             try
             {
@@ -57,13 +61,13 @@ namespace Manager
             hexNumber.Text  = "";
             meaningStr.Text = "";
             isNumberCheck.Checked = false;
-            RefreshTextBox();
+            RefreshSettingsTextBox();
         }
-        private void refreshTextBox_Click(object sender, EventArgs e)
+        private void RefreshTextBox_Click(object sender, EventArgs e)
         {
-            RefreshTextBox();
+            RefreshSettingsTextBox();
         }
-        void RefreshTextBox()
+        void RefreshSettingsTextBox()
         {
             textBox2.Text = resivedPackage.GetCurrentSettings();
         }
@@ -90,6 +94,20 @@ namespace Manager
             {
                 filterForm.Show();
             }
+        }
+        void SendToFilter(byte[] array)
+        {
+            Action action = () => filterForm.GetData(array, resivedPackage.GetSize());
+            Invoke(action);
+        }
+        private void Decode_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = resivedPackage.GetDecodePackage();
+        }
+        private void DecodeData()
+        {
+            Action action = () => textBox1.Text = resivedPackage.GetDecodePackage();
+            Invoke(action);
         }
     }
 }

@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
+﻿using System.Text.Json;
 
 namespace Manager
 {
     [Serializable]
     internal class Package
     {
-        public byte[] DataBytes;
+        private byte[] DataBytes;
         private int Size;
-        public List <ByteSetting> ByteSettings { get; set; }
+        public List<ByteSetting> ByteSettings { get; set; }
         public Package(int lenght)
         {
             DataBytes = new byte[lenght];
@@ -20,20 +15,29 @@ namespace Manager
             SetPackageLenght(lenght);
             Size = lenght;
         }
+        public void SetDataBytes(byte[] array)
+        {
+            if (array.Length != Size)
+            {
+                DataBytes = new byte[array.Length];
+                SetPackageLenght(array.Length);
+            }
+            Array.Copy(array, DataBytes, array.Length);
+        }
         public void SetPackageLenght(int lenght)
         {
             if (ByteSettings.Count < lenght)
             {
-                for(int i = ByteSettings.Count; i < lenght;i++)
+                for (int i = ByteSettings.Count; i < lenght; i++)
                 {
-                    ByteSettings.Add(new ByteSetting(i,true));
+                    ByteSettings.Add(new ByteSetting(i, true));
                 }
                 Size = lenght;
                 return;
             }
             else if (ByteSettings.Count > lenght)
             {
-                ByteSettings.RemoveRange(lenght, ByteSettings.Count-lenght);
+                ByteSettings.RemoveRange(lenght, ByteSettings.Count - lenght);
                 Size = lenght;
                 return;
             }
@@ -41,14 +45,6 @@ namespace Manager
             {
                 return;
             }
-        }
-        public void RefreshBytesArray(byte[] bytesArray)
-        {
-            if(bytesArray.Length != Size)
-            {
-                return;
-            }
-            Array.Copy(bytesArray, DataBytes,Size);
         }
         public void Serialize(string nameOfFile)
         {
@@ -65,7 +61,7 @@ namespace Manager
             catch
             {
                 MessageBox.Show("Fali serialize");
-                return ;
+                return;
             }
             stream.Close();
         }
@@ -132,16 +128,43 @@ namespace Manager
         {
             string settings = "";
 
-            for(int i = 0; i< ByteSettings.Count; i++)
+            for (int i = 0; i < ByteSettings.Count; i++)
             {
                 settings += $"{i}. {ByteSettings[i].IsNumber}  \r\n";
-                for(int j = 0; j<ByteSettings[i].MeaningList.Count; j++)
+                for (int j = 0; j < ByteSettings[i].MeaningList.Count; j++)
                 {
                     settings += $"      {ByteSettings[i].MeaningList[j].Value.ToString("X")} --- {ByteSettings[i].MeaningList[j].Meaning} \r\n";
                 }
             }
 
             return settings;
+        }
+        public string GetDecodePackage()
+        {
+            string meaning = "";
+
+            for (int i = 0; i < ByteSettings.Count; i++)
+            {
+                if (ByteSettings[i].IsNumber)
+                {
+                    meaning += $"{i}. {DataBytes[i].ToString("X")} \r\n";
+                    continue;
+                }
+                else
+                {
+                    meaning += $"{i}. {DataBytes[i].ToString("X")} \r\n";
+                    for (int j = 0; j < ByteSettings[i].MeaningList.Count; j++)
+                    {
+                        if (DataBytes[i] == ByteSettings[i].MeaningList[j].Value)
+                        {
+                            meaning += $"{i}. --- {ByteSettings[i].MeaningList[j].Meaning} \r\n";
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return meaning;
         }
         public int GetSize()
         {

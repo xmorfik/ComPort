@@ -49,10 +49,11 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.indexOfByte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeOfPackage)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -165,7 +166,7 @@
             this.applyToSettings.TabIndex = 12;
             this.applyToSettings.Text = "Применить";
             this.applyToSettings.UseVisualStyleBackColor = true;
-            this.applyToSettings.Click += new System.EventHandler(this.applyToSettings_Click);
+            this.applyToSettings.Click += new System.EventHandler(this.ApplyToSettings_Click);
             // 
             // sizeOfPackage
             // 
@@ -207,7 +208,7 @@
             this.refreshTextBox.TabIndex = 18;
             this.refreshTextBox.Text = "Обновить";
             this.refreshTextBox.UseVisualStyleBackColor = true;
-            this.refreshTextBox.Click += new System.EventHandler(this.refreshTextBox_Click);
+            this.refreshTextBox.Click += new System.EventHandler(this.RefreshTextBox_Click);
             // 
             // groupBox1
             // 
@@ -271,6 +272,16 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Комуникация";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(6, 59);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(237, 31);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Фильтр";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.ShowFilterForm);
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(6, 22);
@@ -283,6 +294,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.button6);
             this.groupBox6.Controls.Add(this.textBox1);
             this.groupBox6.Location = new System.Drawing.Point(543, 12);
             this.groupBox6.Name = "groupBox6";
@@ -299,15 +311,15 @@
             this.textBox1.Size = new System.Drawing.Size(165, 536);
             this.textBox1.TabIndex = 4;
             // 
-            // button5
+            // button6
             // 
-            this.button5.Location = new System.Drawing.Point(6, 59);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(237, 31);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Фильтр";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.ShowFilterForm);
+            this.button6.Location = new System.Drawing.Point(177, 267);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(88, 23);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Расшифровка";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.Decode_Click);
             // 
             // PackageManager
             // 
@@ -365,5 +377,6 @@
         private GroupBox groupBox6;
         private TextBox textBox1;
         private Button button5;
+        private Button button6;
     }
 }

@@ -52,11 +52,11 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.indexOfByte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeOfPackage)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -87,7 +87,7 @@
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(165, 544);
+            this.textBox2.Size = new System.Drawing.Size(165, 616);
             this.textBox2.TabIndex = 3;
             // 
             // hexNumber
@@ -260,7 +260,7 @@
             this.groupBox4.Controls.Add(this.refreshTextBox);
             this.groupBox4.Location = new System.Drawing.Point(267, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(270, 585);
+            this.groupBox4.Size = new System.Drawing.Size(270, 649);
             this.groupBox4.TabIndex = 22;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Текущие настройки";
@@ -305,10 +305,20 @@
             this.groupBox6.Controls.Add(this.textBox1);
             this.groupBox6.Location = new System.Drawing.Point(543, 12);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(306, 585);
+            this.groupBox6.Size = new System.Drawing.Size(308, 649);
             this.groupBox6.TabIndex = 24;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Расшифровка";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(177, 296);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(97, 19);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Фильтровать";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
@@ -343,24 +353,14 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(165, 550);
+            this.textBox1.Size = new System.Drawing.Size(165, 622);
             this.textBox1.TabIndex = 4;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(177, 296);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(97, 19);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Фильтровать";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // PackageManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 605);
+            this.ClientSize = new System.Drawing.Size(871, 673);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);

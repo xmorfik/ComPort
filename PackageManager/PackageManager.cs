@@ -4,11 +4,14 @@ namespace Manager
 {
     public partial class PackageManager : Form
     {
+        List<byte> byteList = new List<byte>();
         const int defSize = 16;
         Package resivedPackage;
         PortSettings.PortSettings serialPortForm;
         Emulator.Filter filterForm;
         SerialPort serialPort;
+       
+
         public PackageManager()
         {
             InitializeComponent();
@@ -18,17 +21,36 @@ namespace Manager
             serialPortForm = new PortSettings.PortSettings(ref serialPort);
             filterForm = new Emulator.Filter(ref serialPort);
             serialPort.DataReceived += DataReceivedHandler;
+            PackageConverter();
         }
+
+        async void PackageConverter()
+        {
+            await Task.Run(() => {
+                while(true)
+                {
+                    if (byteList.Count >= resivedPackage.GetSize())
+                    {
+                        SendToFilter(byteList.ToArray());
+                        resivedPackage.SetDataBytes(byteList.ToArray());
+                        DecodeData();
+                        byteList.Clear();
+                    }
+                }
+            });
+        }
+
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
-            byte[] data = new byte[resivedPackage.GetSize()];
-            SerialPort sp = (SerialPort)sender;
-            sp.Read(data, 0, resivedPackage.GetSize());
-            sp.DiscardInBuffer();
-            resivedPackage.SetDataBytes(data);
-            SendToFilter(data);
-            DecodeData();
+            var port = (SerialPort)sender;
+            var count = port.BytesToRead;
+            for (int i = 0; i < count; i++)
+            {
+                byteList.Add((byte)port.ReadByte());
+            }
         }
+
+
         private void SetLenght_Click(object sender, EventArgs e)
         {
             resivedPackage.SetPackageLenght((int)sizeOfPackage.Value);

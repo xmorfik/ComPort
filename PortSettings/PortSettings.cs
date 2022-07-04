@@ -108,6 +108,8 @@ namespace PortSettings
             }
 
             IsOpenPort();
+
+       
         }
         public void SetSerialPort()
         {
@@ -122,6 +124,10 @@ namespace PortSettings
             _serialPort.Parity = (Parity)(comboBox3.SelectedIndex);
             _serialPort.DataBits = (int)(comboBox4.SelectedItem);
             _serialPort.StopBits = (StopBits)(comboBox5.SelectedIndex);
+            _serialPort.Handshake = Handshake.None;
+            _serialPort.ReadTimeout = 500;
+            _serialPort.WriteTimeout = 500;
+            
         }
         private void comboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {

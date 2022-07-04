@@ -17,15 +17,27 @@ namespace Manager
         }
         public void SetDataBytes(byte[] array)
         {
-            if (array.Length != Size)
-            {
-                DataBytes = new byte[array.Length];
-                SetPackageLenght(array.Length);
+            int i = 0;
+            int j = 0;
+            for (; i< array.Length && j < DataBytes.Length; i++, j++)
+            { 
+            DataBytes[i] = array[j];
             }
-            Array.Copy(array, DataBytes, array.Length);
+            //if (array.Length != Size || DataBytes.Length != Size)
+            //{
+
+            //}
+            //{
+            //    DataBytes = new byte[array.Length];
+            //    SetPackageLenght(array.Length);
+            //}
+
+
+            //Array.Copy(array, DataBytes, array.Length);
         }
         public void SetPackageLenght(int lenght)
         {
+            DataBytes = new byte[lenght];
             if (ByteSettings.Count < lenght)
             {
                 for (int i = ByteSettings.Count; i < lenght; i++)

@@ -1,4 +1,5 @@
 using System.IO.Ports;
+using System.Diagnostics;
 
 namespace Manager
 {
@@ -10,8 +11,6 @@ namespace Manager
         PortSettings.PortSettings serialPortForm;
         Emulator.Filter filterForm;
         SerialPort serialPort;
-       
-
         public PackageManager()
         {
             InitializeComponent();
@@ -23,7 +22,6 @@ namespace Manager
             serialPort.DataReceived += DataReceivedHandler;
             PackageConverter();
         }
-
         async void PackageConverter()
         {
             await Task.Run(() => {
@@ -39,7 +37,6 @@ namespace Manager
                 }
             });
         }
-
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             var port = (SerialPort)sender;
@@ -49,8 +46,6 @@ namespace Manager
                 byteList.Add((byte)port.ReadByte());
             }
         }
-
-
         private void SetLenght_Click(object sender, EventArgs e)
         {
             resivedPackage.SetPackageLenght((int)sizeOfPackage.Value);
@@ -119,7 +114,7 @@ namespace Manager
         }
         void SendToFilter(byte[] array)
         {
-            Action action = () => filterForm.GetData(array, resivedPackage.GetSize());
+            Action action = () => filterForm.GetText(BitConverter.ToString(array));
             Invoke(action);
         }
         private void Decode_Click(object sender, EventArgs e)
@@ -130,6 +125,29 @@ namespace Manager
         {
             Action action = () => textBox1.Text = resivedPackage.GetDecodePackage();
             Invoke(action);
+        }
+        private void MovePac_Click(object sender, EventArgs e)
+        {
+            var watch = new Stopwatch();
+            watch.Start();
+            while(true)
+            {
+                if(byteList.Count>0)
+                {
+                    if (byteList[0].ToString("X") == textBox3.Text)
+                    {
+                        break;
+                    }
+                    else
+                    { byteList.Clear(); }
+                }
+
+              
+                if(watch.Elapsed.TotalSeconds > 2)
+                {
+                    break; 
+                }
+            }
         }
     }
 }

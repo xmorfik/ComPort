@@ -52,8 +52,10 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.indexOfByte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeOfPackage)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -80,10 +82,11 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 22);
+            this.textBox2.Location = new System.Drawing.Point(6, 27);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(165, 536);
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(165, 544);
             this.textBox2.TabIndex = 3;
             // 
             // hexNumber
@@ -256,7 +259,7 @@
             this.groupBox4.Controls.Add(this.refreshTextBox);
             this.groupBox4.Location = new System.Drawing.Point(267, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(270, 564);
+            this.groupBox4.Size = new System.Drawing.Size(270, 585);
             this.groupBox4.TabIndex = 22;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Текущие настройки";
@@ -267,7 +270,7 @@
             this.groupBox5.Controls.Add(this.button3);
             this.groupBox5.Location = new System.Drawing.Point(12, 319);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(249, 257);
+            this.groupBox5.Size = new System.Drawing.Size(249, 278);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Комуникация";
@@ -294,38 +297,58 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.textBox3);
+            this.groupBox6.Controls.Add(this.button7);
             this.groupBox6.Controls.Add(this.button6);
             this.groupBox6.Controls.Add(this.textBox1);
             this.groupBox6.Location = new System.Drawing.Point(543, 12);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(271, 564);
+            this.groupBox6.Size = new System.Drawing.Size(306, 585);
             this.groupBox6.TabIndex = 24;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Расшифровка";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(177, 50);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(123, 23);
+            this.textBox3.TabIndex = 7;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(177, 21);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(123, 23);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "Сдвиг";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.MovePac_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(177, 267);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(123, 23);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Расшифровка";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.Decode_Click);
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(6, 21);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 536);
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(165, 550);
             this.textBox1.TabIndex = 4;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(177, 267);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(88, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Расшифровка";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.Decode_Click);
             // 
             // PackageManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 588);
+            this.ClientSize = new System.Drawing.Size(869, 607);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -378,5 +401,7 @@
         private TextBox textBox1;
         private Button button5;
         private Button button6;
+        private Button button7;
+        private TextBox textBox3;
     }
 }

@@ -120,7 +120,7 @@ namespace Manager
             {
                 ByteSettings.Add(b);
             }
-            Size = obj.Length;
+            SetPackageLenght(obj.Length);
 
             stream.Close();
         }

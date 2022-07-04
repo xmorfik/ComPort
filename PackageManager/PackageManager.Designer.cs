@@ -56,6 +56,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.indexOfByte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeOfPackage)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -270,7 +271,7 @@
             this.groupBox5.Controls.Add(this.button3);
             this.groupBox5.Location = new System.Drawing.Point(12, 319);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(249, 278);
+            this.groupBox5.Size = new System.Drawing.Size(249, 141);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Комуникация";
@@ -297,6 +298,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.checkBox1);
             this.groupBox6.Controls.Add(this.textBox3);
             this.groupBox6.Controls.Add(this.button7);
             this.groupBox6.Controls.Add(this.button6);
@@ -344,11 +346,21 @@
             this.textBox1.Size = new System.Drawing.Size(165, 550);
             this.textBox1.TabIndex = 4;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(177, 296);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(97, 19);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Фильтровать";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // PackageManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 607);
+            this.ClientSize = new System.Drawing.Size(869, 605);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -403,5 +415,6 @@
         private Button button6;
         private Button button7;
         private TextBox textBox3;
+        private CheckBox checkBox1;
     }
 }

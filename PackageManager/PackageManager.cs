@@ -11,6 +11,7 @@ namespace Manager
         PortSettings.PortSettings serialPortForm;
         Emulator.Filter filterForm;
         SerialPort serialPort;
+
         public PackageManager()
         {
             InitializeComponent();
@@ -124,6 +125,16 @@ namespace Manager
         private void DecodeData()
         {
             Action action = () => textBox1.Text = resivedPackage.GetDecodePackage();
+            if (checkBox1.Checked)
+            {
+                if (filterForm.CheckPak(resivedPackage.GetStr()))
+                {
+                    Invoke(action);
+                }
+                else
+                    return;
+            }
+
             Invoke(action);
         }
         private void MovePac_Click(object sender, EventArgs e)

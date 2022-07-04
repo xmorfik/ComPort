@@ -15,6 +15,12 @@ namespace Manager
             SetPackageLenght(lenght);
             Size = lenght;
         }
+
+        public string GetStr()
+        {
+            return BitConverter.ToString(DataBytes);
+        }
+
         public void SetDataBytes(byte[] array)
         {
             int i = 0;

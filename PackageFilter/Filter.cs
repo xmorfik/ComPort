@@ -42,7 +42,7 @@ namespace Emulator
             richTextBox2.Text += ld.GetMe() + "\n";
         }
 
-        private bool CheckPak(string pak)
+        public bool CheckPak(string pak)
         {
             if (_listenDatas.Count == 0)
             {
@@ -69,7 +69,7 @@ namespace Emulator
             numericUpDown1.Value = 0;
             textBox1.Text = "";
             richTextBox2.Text = "";
-            numericUpDown2.Value = 0;
+  //          numericUpDown2.Value = 0;
         }
 
         private void button3_Click(object sender, EventArgs e)
